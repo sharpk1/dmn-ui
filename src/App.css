@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #1f2129;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.react-international-phone-input-container .react-international-phone-input {
+  background-color: #1f2129 !important;
+  color: white !important;
+}
+
+.react-international-phone-country-selector-button {
+  background-color: #1f2129 !important;
+}
+
+.react-international-phone-country-selector-dropdown {
+  background-color: #1f2129 !important;
+  color: white !important;
 }
