@@ -1,8 +1,13 @@
 import React from "react";
 import PhoneNumberInput from "../components/PhoneNumberInput";
 import PhoneInput from "../components/PhoneInput";
+import { useNavigate } from "react-router-dom";
 
 const LoginScreen = () => {
+  const navigate = useNavigate();
+  const handleButtonClick = () => {
+    navigate("/signup"); // Navigate to the /signup route
+  };
   return (
     <div
       style={{
@@ -33,6 +38,7 @@ const LoginScreen = () => {
 
       {/* Log In Button */}
       <button
+        onClick={handleButtonClick}
         style={{
           marginTop: "20px",
           backgroundColor: "#7800ff",
