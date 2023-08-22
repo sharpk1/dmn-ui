@@ -8,6 +8,17 @@ const PhoneNumberInput = () => {
   return (
     <div>
       <PhoneInput
+        countrySelectorStyleProps={{
+          buttonStyle: {
+            paddingLeft: "10px",
+            borderTopLeftRadius: "500px",
+            borderBottomLeftRadius: "500px",
+          },
+        }}
+        inputStyle={{
+          borderTopRightRadius: "500px",
+          borderBottomRightRadius: "500px",
+        }}
         defaultCountry="us"
         value={phone}
         onChange={(phone) => setPhone(phone)}

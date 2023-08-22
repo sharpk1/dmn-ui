@@ -1,8 +1,15 @@
 import React from "react";
-import PhoneNumberInput from "../components/PhoneNumberInput";
-import PhoneInput from "../components/PhoneInput";
 
-const LoginScreen = () => {
+const SignUp = () => {
+  const inputStyle = {
+    padding: "10px",
+    margin: "10px 0",
+    backgroundColor: "#1f2129",
+    color: "white",
+    border: "1px solid #444",
+    borderRadius: "500px",
+  };
+
   return (
     <div
       style={{
@@ -23,15 +30,19 @@ const LoginScreen = () => {
           marginBottom: "20px",
         }}
       >
-        {/* You can replace the below div with an <img> tag for your logo */}
-        <div style={{ fontSize: "30px", textAlign: "center" }}>📱</div>{" "}
-        {/* This is a placeholder phone emoji for the logo */}
+        <div style={{ fontSize: "30px", textAlign: "center" }}>📱</div>
       </div>
 
-      {/* Phone Number Input */}
-      <PhoneNumberInput />
+      {/* Email Input */}
+      <input type="email" placeholder="Email" style={inputStyle} />
 
-      {/* Log In Button */}
+      {/* Name Input */}
+      <input type="text" placeholder="Name" style={inputStyle} />
+
+      {/* Password Input */}
+      <input type="password" placeholder="Password" style={inputStyle} />
+
+      {/* Save Button */}
       <button
         style={{
           marginTop: "20px",
@@ -42,10 +53,10 @@ const LoginScreen = () => {
           borderRadius: "5px",
         }}
       >
-        Log In
+        Save
       </button>
     </div>
   );
 };
 
-export default LoginScreen;
+export default SignUp;
