@@ -40,6 +40,7 @@ const LoginScreen = () => {
       <button
         onClick={handleButtonClick}
         style={{
+          cursor: "pointer",
           marginTop: "20px",
           backgroundColor: "#7800ff",
           color: "white",
