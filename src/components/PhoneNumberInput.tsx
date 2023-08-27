@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CountrySelectorDropdown, PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
+import "../App.css";
 
 const PhoneNumberInput = () => {
   const [phone, setPhone] = useState("");

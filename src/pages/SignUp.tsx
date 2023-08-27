@@ -1,6 +1,12 @@
 import React from "react";
+import DMNLogo from "../components/DMNLogo";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const handleButtonClick = () => {
+    navigate("/home"); // Navigate to the /signup route
+  };
   const inputStyle = {
     padding: "10px",
     margin: "10px 0",
@@ -21,17 +27,7 @@ const SignUp = () => {
         justifyContent: "center",
       }}
     >
-      {/* Logo */}
-      <div
-        style={{
-          width: "50px",
-          height: "50px",
-          backgroundColor: "white",
-          marginBottom: "20px",
-        }}
-      >
-        <div style={{ fontSize: "30px", textAlign: "center" }}>📱</div>
-      </div>
+      <DMNLogo />
 
       {/* Email Input */}
       <input type="email" placeholder="Email" style={inputStyle} />
@@ -44,6 +40,7 @@ const SignUp = () => {
 
       {/* Save Button */}
       <button
+        onClick={handleButtonClick}
         style={{
           marginTop: "20px",
           backgroundColor: "#7800ff",
