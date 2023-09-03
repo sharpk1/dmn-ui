@@ -1,11 +1,14 @@
 import React from "react";
-import DMNLogo from "../components/DMNLogo";
 import DMNLogoAligned from "../components/DMNLogoAligned";
-import EyeWithCornersIcon from "../components/EyeWithCorners";
 import EyeIcons from "../components/EyeIcon";
 import WhiteCheckbox from "../components/WhiteCheckbox";
+import { useNavigate } from "react-router-dom";
 
 const ArtistHomepage: React.FC = () => {
+  const navigate = useNavigate();
+  const handleNewButton = () => {
+    navigate("/newPiece");
+  };
   return (
     <div
       style={{
@@ -75,6 +78,7 @@ const ArtistHomepage: React.FC = () => {
       >
         {/* New Button */}
         <button
+          onClick={handleNewButton}
           style={{
             width: "125px",
             backgroundColor: "#7800ff",
