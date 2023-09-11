@@ -132,7 +132,7 @@ const CreateNewPiece = () => {
           style={{
             display: "flex",
             justifyContent: "center",
-            marginBottom: "10px",
+            // marginBottom: "10px",
             width: "125px",
             backgroundColor: "#7800ff",
             color: "white",
@@ -141,7 +141,9 @@ const CreateNewPiece = () => {
             borderRadius: "5px",
             fontWeight: "bold",
             marginTop: "30px",
-            margin: "auto", // this line centers the button
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginBottom: "0px",
           }}
         >
           Save
