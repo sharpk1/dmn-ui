@@ -7,8 +7,10 @@ import {
 import art from "../assets/art.webp";
 import { jsPDF } from "jspdf";
 import dmnLogo from "../assets/dmnlogo.webp"; // adjust the path as needed
+import { useNavigate } from "react-router-dom";
 
 const PieceInformation: React.FC = () => {
+  const navigate = useNavigate();
   const [mode, setMode] = useState("view");
   const toggleMode = () => {
     setMode(mode === "view" ? "edit" : "view");
@@ -59,6 +61,10 @@ const PieceInformation: React.FC = () => {
 
     // Open PDF in a new window
     window.open(URL.createObjectURL(doc.output("blob")));
+  };
+
+  const onSubmitClick = () => {
+    return navigate("/comments");
   };
 
   return (
@@ -176,6 +182,7 @@ const PieceInformation: React.FC = () => {
             border: "none",
             borderRadius: "5px",
           }}
+          onClick={onSubmitClick}
         >
           Submit
         </button>

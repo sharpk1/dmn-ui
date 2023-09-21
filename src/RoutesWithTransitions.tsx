@@ -8,6 +8,7 @@ import "./index.css";
 import ArtistHomepage from "./pages/ArtistHomepage";
 import CreateNewPiece from "./pages/CreateNewPiece";
 import PieceInformation from "./pages/PieceInformation";
+import Comments from "./pages/CommentsPage";
 
 const RoutesWithTransitions = () => {
   const location = useLocation();
@@ -20,6 +21,7 @@ const RoutesWithTransitions = () => {
           <Route path="/home" element={<ArtistHomepage />} />
           <Route path="/newPiece" element={<CreateNewPiece />} />
           <Route path="/piece" element={<PieceInformation />} />
+          <Route path="/comments" element={<Comments />} />
         </Routes>
       </CSSTransition>
     </TransitionGroup>
