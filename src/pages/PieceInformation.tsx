@@ -6,8 +6,11 @@ import {
 } from "react-icons/bs";
 import art from "../assets/art.webp";
 import { jsPDF } from "jspdf";
-import dmnLogo from "../assets/dmnlogo.webp"; // adjust the path as needed
 import { useNavigate } from "react-router-dom";
+import newDmnLogo from "../assets/RECTANGESBLACK.png";
+import font64 from "../components/FontExport";
+import QRCode from "qrcode";
+import exportedFont from "../components/AnotherFontExport";
 
 const PieceInformation: React.FC = () => {
   const navigate = useNavigate();
@@ -26,7 +29,8 @@ const PieceInformation: React.FC = () => {
     width: "-webkit-fill-available",
     fontFamily: "Arial, sans-serif",
   };
-  const createTag = () => {
+
+  const createTag = async () => {
     // TODO: Need to update the font for this PDF generation
     const doc = new jsPDF({
       orientation: "landscape",
@@ -34,30 +38,48 @@ const PieceInformation: React.FC = () => {
       format: [127, 203.2],
     });
 
+    // doc.addFileToVFS("Helvetica-Neue-Condensed-Bold.ttf", font64);
+    // doc.addFont("Helvetica-Neue-Condensed-Bold.ttf", "HelveticaNeue", "normal");
+    // doc.setFont("HelveticaNeue", "normal");
+    doc.addFileToVFS("roadgeek-2005-engschrift.ttf", exportedFont);
+    doc.addFont("roadgeek-2005-engschrift.ttf", "roadgeek", "normal");
+    doc.setFont("roadgeek", "normal");
+
     doc.setTextColor(120, 0, 255);
 
-    doc.addImage(dmnLogo, "JPEG", 10, 10, 40, 40); // Adds image at (10, 10) with dimensions 40x40
+    doc.addImage(newDmnLogo, "PNG", -10, 0, 65, 35); // Adds image at (10, 10) with dimensions 40x40
+
+    try {
+      const qrCodeDataURL = await QRCode.toDataURL("https://www.example.com", {
+        width: 64, // or any size you want
+      });
+      // Add the QR code to the PDF at the bottom left
+      doc.addImage(qrCodeDataURL, "PNG", 3, 80, 45, 45);
+    } catch (err) {
+      console.error("Could not generate QR code", err);
+    }
 
     const title = document.getElementById("title")?.innerText || "";
     const artist = document.getElementById("artist")?.innerText || "";
     const size = document.getElementById("size")?.innerText || "";
     const medium = document.getElementById("medium")?.innerText || "";
     // Add other fields such as price based on their ids
-    doc.setFontSize(32);
+    doc.setFontSize(36);
     // Position text to the right of the logo, adjust the x-coordinate
-    doc.text(`Title: ${title}`, 60, 20);
-    doc.text(`Artist: ${artist}`, 60, 40);
-    doc.text(`Medium: ${medium}`, 60, 60);
-    doc.text(`Size: ${size}`, 60, 80);
-    doc.text(`Price: $300`, 60, 100);
+    doc.text(`Title: ${title}`, 70, 25);
+    doc.text(`Artist: ${artist}`, 70, 45);
+    doc.text(`Medium: ${medium}`, 70, 65);
+    doc.text(`Size: ${size}`, 70, 85);
+    doc.text(`Price: $300`, 70, 105);
     // Add other fields such as price
-    doc.setFontSize(12);
+    doc.setFontSize(24);
     // Add "Dark Matter Network" text below the logo
-    doc.text("Dark Matter", 10, 60);
-    doc.text("Network", 10, 65);
-    doc.text("Connect, engage,", 10, 80);
-    doc.text("converse, support,", 10, 85);
-    doc.text("purchase", 10, 90);
+    doc.setCharSpace(-0.25);
+    doc.text("Dark Matter", 8, 45);
+    doc.text("Network", 8, 52);
+    doc.text("Connect, engage,", 8, 65);
+    doc.text("converse, support,", 8, 73);
+    doc.text("purchase:", 8, 81);
 
     // Open PDF in a new window
     window.open(URL.createObjectURL(doc.output("blob")));

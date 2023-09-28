@@ -9,7 +9,7 @@ import art from "../assets/art.webp";
 const Comments: React.FC = () => {
   const [mode, setMode] = useState("view");
   const [comment, setComment] = useState("");
-  const [commentStack, setCommentStack] = useState([""]);
+  const [commentStack, setCommentStack] = useState<string[]>([]);
   const toggleMode = () => {
     setMode(mode === "view" ? "edit" : "view");
   };
@@ -118,9 +118,13 @@ const Comments: React.FC = () => {
       >
         User 1: Great composition!
       </h4>
+      {/* TODO: Add event corresponding to person */}
       {commentStack.map((comment) => {
         return (
-          <h4 style={{ margin: 0, paddingLeft: 10 }}>User 1: {comment}</h4>
+          <>
+            <h4 style={{ margin: 0, paddingLeft: 10 }}>Spring Gala 3/26/23:</h4>
+            <h4 style={{ margin: 0, paddingLeft: 10 }}>Brian C: {comment}</h4>
+          </>
         );
       })}
       <div
