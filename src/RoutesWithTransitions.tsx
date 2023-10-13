@@ -9,6 +9,8 @@ import ArtistHomepage from "./pages/ArtistHomepage";
 import CreateNewPiece from "./pages/CreateNewPiece";
 import PieceInformation from "./pages/PieceInformation";
 import Comments from "./pages/CommentsPage";
+import Purchase from "./pages/PurchasePage";
+import ApplePay from "./components/ApplePay";
 
 const RoutesWithTransitions = () => {
   const location = useLocation();
@@ -22,6 +24,8 @@ const RoutesWithTransitions = () => {
           <Route path="/newPiece" element={<CreateNewPiece />} />
           <Route path="/piece" element={<PieceInformation />} />
           <Route path="/comments" element={<Comments />} />
+          <Route path="/purchase" element={<Purchase />} />
+          <Route path="/apple-pay" element={<ApplePay />} />
         </Routes>
       </CSSTransition>
     </TransitionGroup>
