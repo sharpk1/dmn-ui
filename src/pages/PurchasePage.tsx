@@ -6,17 +6,16 @@ import {
 } from "react-icons/bs";
 import art from "../assets/art.webp";
 import { PaymentForm } from "react-square-web-payments-sdk";
+import ApplePay from "../components/ApplePay";
 
 const Purchase: React.FC = () => {
-  const [purchaseState, setPurchaseState] = useState<"pending" | "completed">(
-    "pending"
-  );
-  const [mode, setMode] = useState("view");
-  const [comment, setComment] = useState("");
-  const [commentStack, setCommentStack] = useState<string[]>([]);
-  const toggleMode = () => {
-    setMode(mode === "view" ? "edit" : "view");
-  };
+  // const [purchaseState, setPurchaseState] = useState<"pending" | "completed">(
+  //   "pending"
+  // );
+  // const [mode, setMode] = useState("view");
+  // const toggleMode = () => {
+  //   setMode(mode === "view" ? "edit" : "view");
+  // };
   // TODO: make this accessible by other components. Its being DRY'd
   const inputStyle = {
     padding: "10px",
@@ -91,41 +90,9 @@ const Purchase: React.FC = () => {
             <h2 id="title" style={{ margin: 0 }}>
               Price: $300
             </h2>
-            <div style={{ marginTop: "20px" }}>
-              <input
-                type="text"
-                placeholder="Credit Card Number"
-                style={inputStyle}
-              />
-              <input
-                type="text"
-                placeholder="Expiration Date (MM/YY)"
-                style={inputStyle}
-              />
-              <input
-                type="text"
-                placeholder="Security Code"
-                style={inputStyle}
-              />
+            <div style={{ marginTop: "25px" }}>
+              <ApplePay />
             </div>
-            <button
-              onClick={() => setPurchaseState("completed")}
-              style={{
-                marginTop: "10px",
-                backgroundColor:
-                  purchaseState === "pending" ? "#7800ff" : "limegreen",
-                color: "white",
-                border: "none",
-                borderRadius: "500px",
-                padding: "10px 20px",
-                fontSize: "16px",
-                cursor: "pointer",
-              }}
-            >
-              {purchaseState === "pending"
-                ? "Purchase Now"
-                : "Purchase Completed!"}
-            </button>
           </div>
         </div>
       </div>

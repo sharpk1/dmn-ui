@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   useStripe,
   useElements,
@@ -33,11 +33,36 @@ const ApplePay = () => {
       }
     });
 
-    pr.on("paymentmethod", async (e) => {});
+    pr.on("paymentmethod", async (e) => {
+      const { clientSecret } = await fetch("/create-payment-intent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // body: JSON.stringify({ paymentMethodType: "card", currency: "usd" }),
+        body: JSON.stringify({}),
+      }).then((r) => r.json());
+      const { error, paymentIntent } = await stripe.confirmCardPayment(
+        clientSecret,
+        {
+          payment_method: e.paymentMethod.id,
+        },
+        {
+          handleActions: false,
+        }
+      );
+      if (error) {
+        e.complete("fail");
+        return;
+      }
+      e.complete("success");
+      if (paymentIntent.status === "requires_action") {
+        stripe.confirmCardPayment(clientSecret);
+      }
+    });
   }, [stripe, elements]);
   return (
     <>
-      <div>Hello</div>
       {paymentRequest && (
         <PaymentRequestButtonElement options={{ paymentRequest }} />
       )}
