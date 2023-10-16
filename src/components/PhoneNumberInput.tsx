@@ -3,8 +3,13 @@ import { CountrySelectorDropdown, PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import "../App.css";
 
-const PhoneNumberInput = () => {
-  const [phone, setPhone] = useState("");
+type PhoneNumberInputProps = {
+  setPhone: React.Dispatch<React.SetStateAction<string>>;
+  phone: string;
+};
+
+const PhoneNumberInput = (props: PhoneNumberInputProps) => {
+  const { setPhone, phone } = props;
 
   return (
     <div>
@@ -22,7 +27,10 @@ const PhoneNumberInput = () => {
         }}
         defaultCountry="us"
         value={phone}
-        onChange={(phone) => setPhone(phone)}
+        onChange={(phone) => {
+          console.log(phone);
+          setPhone(phone);
+        }}
       />
     </div>
   );

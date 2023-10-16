@@ -11,6 +11,7 @@ import PieceInformation from "./pages/PieceInformation";
 import Comments from "./pages/CommentsPage";
 import Purchase from "./pages/PurchasePage";
 import ApplePay from "./components/ApplePay";
+import Registration from "./pages/Registration";
 
 const RoutesWithTransitions = () => {
   const location = useLocation();
@@ -18,7 +19,7 @@ const RoutesWithTransitions = () => {
     <TransitionGroup>
       <CSSTransition key={location.key} classNames="slide" timeout={450}>
         <Routes>
-          <Route path="/" element={<LoginScreen />} />
+          <Route path="/login" element={<LoginScreen />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/home" element={<ArtistHomepage />} />
           <Route path="/newPiece" element={<CreateNewPiece />} />
@@ -26,6 +27,7 @@ const RoutesWithTransitions = () => {
           <Route path="/comments" element={<Comments />} />
           <Route path="/purchase" element={<Purchase />} />
           <Route path="/apple-pay" element={<ApplePay />} />
+          <Route path="/register" element={<Registration />} />
         </Routes>
       </CSSTransition>
     </TransitionGroup>
