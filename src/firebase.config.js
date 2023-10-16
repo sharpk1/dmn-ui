@@ -8,7 +8,7 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDPsvuIsxHbYxsa6SXkujxR-Vi8Qq9A3Qs",
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: "dark-matter-network.firebaseapp.com",
   databaseURL: "https://dark-matter-network-default-rtdb.firebaseio.com",
   projectId: "dark-matter-network",
