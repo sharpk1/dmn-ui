@@ -19,7 +19,7 @@ const RoutesWithTransitions = () => {
     <TransitionGroup>
       <CSSTransition key={location.key} classNames="slide" timeout={450}>
         <Routes>
-          <Route path="/login" element={<LoginScreen />} />
+          <Route path="/" element={<LoginScreen />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/home" element={<ArtistHomepage />} />
           <Route path="/newPiece" element={<CreateNewPiece />} />

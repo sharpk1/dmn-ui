@@ -17,7 +17,7 @@ const LoginScreen = () => {
   const handleButtonClick = () => {
     navigate("/signup"); // Navigate to the /signup route
   };
-
+  console.log("app running");
   // const auth = getAuth();
 
   // const onCaptchaVerify = () => {
