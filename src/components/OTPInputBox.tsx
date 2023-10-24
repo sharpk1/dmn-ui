@@ -1,40 +1,50 @@
-type OTPInputBoxProps = React.InputHTMLAttributes<HTMLInputElement> & {
-  inputRef: React.RefObject<HTMLInputElement>;
+import React, { forwardRef, useEffect } from "react";
+
+type OTPInputBoxProps = {
   isVerified: boolean;
+  focusNext: () => void;
+  focusPrev: () => void;
 };
-const OTPInputBox: React.FC<OTPInputBoxProps> = ({ inputRef, ...props }) => {
-  const { isVerified } = props;
-  return (
-    <input
-      ref={inputRef}
-      onChange={(e) => {
-        if (e.target.value) {
-          // Check the next sibling and focus if it exists
-          const nextSibling = e.target.nextElementSibling as HTMLInputElement;
-          if (nextSibling) {
-            nextSibling.focus();
+
+const OTPInputBox = forwardRef<HTMLInputElement, OTPInputBoxProps>(
+  ({ isVerified, focusPrev, focusNext, ...props }, ref) => {
+    useEffect(() => {
+      if (ref && "current" in ref && ref.current) {
+        ref.current.oninput = () => {
+          if (ref.current?.value) {
+            focusNext();
           }
-        }
-        if (props.onChange) {
-          props.onChange(e);
-        }
-      }}
-      type="text"
-      maxLength={1}
-      style={{
-        boxShadow: isVerified ? "0 0 5px 2px #00FF00" : "none",
-        padding: "10px",
-        margin: "10px",
-        backgroundColor: "#1f2129",
-        color: "white",
-        border: "1px solid #444",
-        // borderRadius: "500px",
-        width: "20px",
-        textAlign: "center",
-      }}
-      {...props}
-    />
-  );
-};
+        };
+        ref.current.onkeydown = (event) => {
+          if (event.key === "Backspace" && !ref.current?.value) {
+            focusPrev();
+          }
+        };
+      }
+    }, [focusNext, focusPrev, ref]);
+
+    return (
+      <input
+        ref={ref}
+        {...props}
+        maxLength={1}
+        style={{
+          width: "40px",
+          height: "40px",
+          margin: "0 5px",
+          fontSize: "20px",
+          textAlign: "center",
+          borderRadius: "5px",
+          border: `2px solid ${isVerified ? "green" : "white"}`,
+          backgroundColor: "#1f2129",
+          color: "white",
+        }}
+        type="tel"
+        inputMode="numeric"
+        pattern="[0-9]*"
+      />
+    );
+  }
+);
 
 export default OTPInputBox;

@@ -28,15 +28,23 @@ const Registration = () => {
     // navigate("/verification"); // Navigate to the /signup route
   };
 
-  const ref1 = useRef<HTMLInputElement>(null);
-  const ref2 = useRef<HTMLInputElement>(null);
-  const ref3 = useRef<HTMLInputElement>(null);
-  const ref4 = useRef<HTMLInputElement>(null);
-  const ref5 = useRef<HTMLInputElement>(null);
-  const ref6 = useRef<HTMLInputElement>(null);
-
-  const inputRefs = [ref1, ref2, ref3, ref4, ref5, ref6];
-
+  const inputRefs = Array.from({ length: 6 }, () =>
+    createRef<HTMLInputElement>()
+  );
+  const focusNextInput = (index: number) => {
+    return () => {
+      if (index < inputRefs.length - 1) {
+        inputRefs[index + 1].current?.focus();
+      }
+    };
+  };
+  const focusPrevInput = (index: number) => {
+    return () => {
+      if (index > 0) {
+        inputRefs[index - 1].current?.focus();
+      }
+    };
+  };
   return (
     <div
       style={{
@@ -54,7 +62,13 @@ const Registration = () => {
       {/* <PhoneNumberInput /> */}
       <div style={{ display: "flex" }}>
         {inputRefs.map((ref, index) => (
-          <OTPInputBox key={index} inputRef={ref} isVerified={isVerified} />
+          <OTPInputBox
+            key={index}
+            ref={ref}
+            isVerified={isVerified}
+            focusNext={focusNextInput(index)}
+            focusPrev={focusPrevInput(index)}
+          />
         ))}
       </div>
 
