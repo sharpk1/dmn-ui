@@ -31,6 +31,7 @@ const Registration = () => {
   const inputRefs = Array.from({ length: 6 }, () =>
     createRef<HTMLInputElement>()
   );
+
   const focusNextInput = (index: number) => {
     return () => {
       if (index < inputRefs.length - 1) {
@@ -38,6 +39,7 @@ const Registration = () => {
       }
     };
   };
+
   const focusPrevInput = (index: number) => {
     return () => {
       if (index > 0) {
@@ -45,6 +47,7 @@ const Registration = () => {
       }
     };
   };
+
   return (
     <div
       style={{
@@ -54,13 +57,21 @@ const Registration = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        padding: "1rem", // Add some padding
       }}
     >
       <DMNLogo />
 
       {/* Phone Number Input */}
       {/* <PhoneNumberInput /> */}
-      <div style={{ display: "flex" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          width: "100%",
+          padding: "0 1rem",
+        }}
+      >
         {inputRefs.map((ref, index) => (
           <OTPInputBox
             key={index}
@@ -76,13 +87,15 @@ const Registration = () => {
       <button
         onClick={handleButtonClick}
         style={{
+          marginTop: "1rem",
           cursor: "pointer",
-          marginTop: "20px",
+          // marginTop: "20px",
           backgroundColor: "#7800ff",
           color: "white",
-          padding: "10px 20px",
+          padding: "0.5rem 1rem",
           border: "none",
-          borderRadius: "5px",
+          borderRadius: "0.25rem",
+          fontSize: "1rem",
         }}
       >
         Verify

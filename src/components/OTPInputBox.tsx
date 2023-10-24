@@ -25,12 +25,13 @@ const OTPInputBox = forwardRef<HTMLInputElement, OTPInputBoxProps>(
 
     return (
       <input
+        autoComplete="one-time-code"
         ref={ref}
         {...props}
         maxLength={1}
         style={{
-          width: "40px",
-          height: "40px",
+          width: "30px",
+          height: "30px",
           margin: "0 5px",
           fontSize: "20px",
           textAlign: "center",

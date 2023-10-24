@@ -22,6 +22,7 @@ const PhoneNumberInput = (props: PhoneNumberInputProps) => {
           },
         }}
         inputStyle={{
+          fontSize: "1rem",
           borderTopRightRadius: "500px",
           borderBottomRightRadius: "500px",
         }}

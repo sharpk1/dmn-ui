@@ -143,6 +143,7 @@ const LoginScreen = () => {
           padding: "10px 20px",
           border: "none",
           borderRadius: "5px",
+          fontSize: "1rem",
         }}
         id="verify-button"
       >
