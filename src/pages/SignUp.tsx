@@ -8,6 +8,7 @@ const SignUp = () => {
     navigate("/home"); // Navigate to the /signup route
   };
   const inputStyle = {
+    fontSize: "16px",
     padding: "10px",
     margin: "10px 0",
     backgroundColor: "#1f2129",
@@ -42,6 +43,7 @@ const SignUp = () => {
       <button
         onClick={handleButtonClick}
         style={{
+          fontSize: "16px",
           marginTop: "20px",
           backgroundColor: "#7800ff",
           color: "white",
