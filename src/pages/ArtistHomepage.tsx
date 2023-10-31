@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DMNLogoAligned from "../components/DMNLogoAligned";
 import EyeIcons from "../components/EyeIcon";
 import WhiteCheckbox from "../components/WhiteCheckbox";
 import { useNavigate } from "react-router-dom";
 
 const ArtistHomepage: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const navigate = useNavigate();
   const handleNewButton = () => {
     navigate("/newPiece");
