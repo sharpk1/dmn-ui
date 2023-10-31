@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DMNLogo from "../components/DMNLogo";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  useEffect(() => {
+    return () => {
+      window.scrollTo(0, 0);
+    };
+  }, []);
   const navigate = useNavigate();
   const handleButtonClick = () => {
     navigate("/home"); // Navigate to the /signup route

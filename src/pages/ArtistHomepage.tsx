@@ -1,12 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import DMNLogoAligned from "../components/DMNLogoAligned";
 import EyeIcons from "../components/EyeIcon";
 import WhiteCheckbox from "../components/WhiteCheckbox";
 import { useNavigate } from "react-router-dom";
 
 const ArtistHomepage: React.FC = () => {
+  const topBarRef = useRef(null);
+
   useEffect(() => {
+    console.log(window.history.scrollRestoration);
+    if (window.history.scrollRestoration) {
+      window.history.scrollRestoration = "manual";
+    }
     window.scrollTo(0, 0);
+    if (topBarRef.current) {
+      // @ts-ignore
+      topBarRef.current.tabIndex = -1;
+      // @ts-ignore
+      topBarRef.current.focus();
+    }
   }, []);
 
   const navigate = useNavigate();
@@ -18,7 +30,7 @@ const ArtistHomepage: React.FC = () => {
       style={{
         backgroundColor: "#1f2129",
         color: "white",
-        minHeight: "100vh",
+        minHeight: "80vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -26,6 +38,7 @@ const ArtistHomepage: React.FC = () => {
     >
       {/* Top Bar */}
       <div
+        ref={topBarRef}
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -77,7 +90,7 @@ const ArtistHomepage: React.FC = () => {
           display: "flex",
           justifyContent: "space-around",
           padding: "10px",
-          marginBottom: "200px",
+          marginBottom: "100px",
         }}
       >
         {/* New Button */}
@@ -108,7 +121,7 @@ const ArtistHomepage: React.FC = () => {
             borderRadius: "5px",
           }}
         >
-          Edit
+          Edits
         </button>
       </div>
     </div>
