@@ -77,7 +77,7 @@ const ArtistHomepage: React.FC = () => {
           display: "flex",
           justifyContent: "space-around",
           padding: "10px",
-          marginBottom: "100px",
+          marginBottom: "200px",
         }}
       >
         {/* New Button */}
