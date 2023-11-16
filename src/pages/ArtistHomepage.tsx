@@ -25,6 +25,10 @@ const ArtistHomepage: React.FC = () => {
   const handleNewButton = () => {
     navigate("/newPiece");
   };
+
+  const handlePiece = () => {
+    navigate("/piece");
+  };
   return (
     <div
       style={{
@@ -75,7 +79,12 @@ const ArtistHomepage: React.FC = () => {
               alignItems: "center",
             }}
           >
-            <h3>No, Thank You!</h3>
+            <h3
+              onClick={handlePiece}
+              style={{ cursor: "pointer", textDecoration: "underline" }}
+            >
+              No, Thank You!
+            </h3>
             <EyeIcons />
             <h4 style={{ marginLeft: "5px" }}>23</h4>
             <h4 style={{ marginLeft: "10px" }}>10 comments</h4>

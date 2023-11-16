@@ -11,6 +11,7 @@ import newDmnLogo from "../assets/RECTANGESBLACK.png";
 import font64 from "../components/FontExport";
 import QRCode from "qrcode";
 import exportedFont from "../components/AnotherFontExport";
+import BackButton from "../components/BackButton";
 
 const PieceInformation: React.FC = () => {
   const navigate = useNavigate();
@@ -82,7 +83,27 @@ const PieceInformation: React.FC = () => {
     doc.text("purchase:", 8, 81);
 
     // Open PDF in a new window
-    window.open(URL.createObjectURL(doc.output("blob")));
+    // window.open(URL.createObjectURL(doc.output("blob")));
+    // instead of opening in a new window, create a blob URL
+    const blob = doc.output("blob");
+    const blobURL = URL.createObjectURL(blob);
+
+    // create a temporary link element
+    const link = document.createElement("a");
+
+    // set attributes and href for the link. This will define the file name for the download
+    link.href = blobURL;
+    link.download = "tag.pdf"; // or any other name you wish to give
+
+    // append the link to the body
+    document.body.appendChild(link);
+
+    // trigger download
+    link.click();
+
+    // clean up the DOM
+    document.body.removeChild(link);
+    URL.revokeObjectURL(blobURL);
   };
 
   const onSubmitClick = () => {
@@ -92,12 +113,14 @@ const PieceInformation: React.FC = () => {
   return (
     <div
       style={{
+        position: "relative",
         // backgroundColor: "black",
         color: "white",
         padding: "20px",
         margin: "10px", // Added margin around the entire component
       }}
     >
+      <BackButton />
       {/* Container to center the image */}
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
@@ -206,7 +229,7 @@ const PieceInformation: React.FC = () => {
           }}
           onClick={onSubmitClick}
         >
-          Submit
+          Comment
         </button>
       </div>
     </div>
