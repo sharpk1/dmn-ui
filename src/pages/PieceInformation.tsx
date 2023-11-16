@@ -142,7 +142,7 @@ const PieceInformation: React.FC = () => {
           alignItems: "center",
           marginTop: "10px",
           justifyContent: "space-between", // Added this
-          width: "350px", // Matching the image's width
+          // width: "350px", // Matching the image's width
         }}
       >
         <div style={{ display: "flex", alignItems: "center", margin: 0 }}>
@@ -165,6 +165,23 @@ const PieceInformation: React.FC = () => {
       <h4 id="artist" style={{ margin: 0, paddingLeft: 10 }}>
         Brian Carano
       </h4>
+      <h2 id="medium">Artist Bio</h2>
+      <h4 id="size" style={{ margin: 0, paddingLeft: 10 }}>
+        <h4>
+          An evocative artist who has spent years refining their craft, Morgan
+          Taylor is renowned for a distinctive style that blends traditional
+          techniques with modern themes. Taylor's work often explores the
+          juxtaposition of light and shadow, capturing the essence of their
+          subjects with a depth that transcends the surface. With an eye for the
+          subtle intricacies of the natural world, Taylor’s pieces are a study
+          in emotion and experience, inviting the viewer to delve into a
+          narrative that is both personal and universal. Their exhibitions have
+          drawn acclaim for their immersive quality and the visceral connection
+          they forge with audiences. Dedicated to their art, Morgan Taylor
+          continues to push boundaries, ensuring each piece is not just seen,
+          but truly felt.
+        </h4>
+      </h4>
       {mode === "view" ? (
         <h2 id="medium">Photograph</h2>
       ) : (
@@ -185,6 +202,47 @@ const PieceInformation: React.FC = () => {
         the casino and walked away a big winner!
       </h4>
       <br />
+      <h2 id="medium" style={{ margin: 0 }}>
+        Curations/Events:
+      </h2>
+      <br />
+      <h4 style={{ margin: 0, paddingLeft: 10 }}>
+        Night at the Museum:{" "}
+        <span
+          onClick={() => navigate("/comments")}
+          style={{ cursor: "pointer", textDecoration: "underline" }}
+        >
+          7 comments
+        </span>
+      </h4>
+      <h4 style={{ margin: 0, paddingLeft: 10 }}>
+        Day of the Dead:{" "}
+        <span
+          onClick={() => navigate("/comments")}
+          style={{ cursor: "pointer", textDecoration: "underline" }}
+        >
+          7 comments
+        </span>
+      </h4>
+      <h4 style={{ margin: 0, paddingLeft: 10 }}>
+        First Friday 3/26/23:{" "}
+        <span
+          onClick={() => navigate("/comments")}
+          style={{ cursor: "pointer", textDecoration: "underline" }}
+        >
+          6 comments
+        </span>
+      </h4>
+      <h4 style={{ margin: 0, paddingLeft: 10 }}>Curations/Events:</h4>
+      <h4 style={{ margin: 0, paddingLeft: 10 }}>
+        Night at the Museum: 7 comments
+      </h4>
+      <h4 style={{ margin: 0, paddingLeft: 10 }}>
+        Day of the Dead: 7 comments
+      </h4>
+      <h4 style={{ margin: 0, paddingLeft: 10 }}>
+        First Friday 3/26/23: 6 comments
+      </h4>
       <h4 style={{ margin: 0, paddingLeft: 10 }}>Curations/Events:</h4>
       <h4 style={{ margin: 0, paddingLeft: 10 }}>
         Night at the Museum: 7 comments
@@ -199,8 +257,15 @@ const PieceInformation: React.FC = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          marginTop: "30px", // Pushes the buttons towards the bottom
+          position: "fixed",
+          justifyContent: "space-evenly",
+          left: 0,
+          bottom: 0,
+          width: "100%",
+          backgroundColor: "#1f2129",
+          color: "white",
+          textAlign: "center",
+          padding: "10px 0", // Adjust as needed
         }}
       >
         <button
