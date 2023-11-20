@@ -17,48 +17,6 @@ const LoginScreen = () => {
   const handleButtonClick = () => {
     navigate("/signup"); // Navigate to the /signup route
   };
-  console.log("app running");
-  // const auth = getAuth();
-
-  // const onCaptchaVerify = () => {
-  //   console.log("onCaptchaVerify");
-  //   // @ts-ignore
-  //   if (!window.recaptchaVerifier) {
-  //     // @ts-ignore
-  //     window.recaptchaVerifier = new RecaptchaVerifier(auth, "login-screen", {
-  //       size: "invisible",
-  //       // @ts-ignore
-  //       callback: (response) => {
-  //         onSignup();
-  //       },
-  //       "expired-callback": () => {},
-  //     });
-  //   }
-  // };
-
-  // const onSignup = () => {
-  //   console.log("onSignup");
-  //   onCaptchaVerify();
-  //   // @ts-ignore
-  //   const appVerifier = window.recaptchaVerifier;
-  //   signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-  //     .then((confirmationResult) => {
-  //       // @ts-ignore
-  //       window.confirmationResult = confirmationResult;
-  //       // setLoading(false);
-  //       // setShowOTP(true);
-  //       // toast.success("OTP sended successfully!");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       // setLoading(false);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   // Initialize reCAPTCHA on component mount
-  //   initializeCaptcha();
-  // }, []);
 
   const initializeCaptcha = () => {
     console.log("Initializing Captcha");
@@ -85,19 +43,20 @@ const LoginScreen = () => {
   const signIn = async () => {
     try {
       console.log("onSignup");
+      // TODO: to enable recaptcha, uncomment all these lines in the scope except the tsignores
       // @ts-ignore
-      const appVerifier = window.recaptchaVerifier;
+      // const appVerifier = window.recaptchaVerifier;
       console.log(phoneNumber);
 
-      const confirmationResult = await signInWithPhoneNumber(
-        auth,
-        phoneNumber,
-        appVerifier
-      );
+      // const confirmationResult = await signInWithPhoneNumber(
+      //   auth,
+      //   phoneNumber,
+      //   appVerifier
+      // );
       // @ts-ignore
-      window.confirmationResult = confirmationResult;
+      // window.confirmationResult = confirmationResult;
       // @ts-ignore
-      window.recaptchaVerifier.verify();
+      // window.recaptchaVerifier.verify();
       navigate("/register");
     } catch (error) {
       console.error("Error during sign-in:", error);
@@ -106,9 +65,10 @@ const LoginScreen = () => {
 
   const onSignupButtonClick = async () => {
     try {
-      initializeCaptcha();
+      // TODO: TO enable recaptcha, uncomment the next line and the next two after it
+      // initializeCaptcha();
       // @ts-ignore
-      await window.recaptchaVerifier.verify();
+      // await window.recaptchaVerifier.verify();
       console.log("reCAPTCHA verification succeeded!");
     } catch (error) {
       console.error("reCAPTCHA verification failed:", error);
@@ -133,8 +93,9 @@ const LoginScreen = () => {
 
       {/* Log In Button */}
       <button
-        onClick={onSignupButtonClick}
-        // onClick={handleButtonClick}
+        // TODO: uncomment this next line and comment the signIn line for recaptcha
+        // onClick={onSignupButtonClick}
+        onClick={signIn}
         style={{
           cursor: "pointer",
           marginTop: "20px",

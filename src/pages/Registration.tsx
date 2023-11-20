@@ -8,23 +8,30 @@ const Registration = () => {
   const [isVerified, setIsVerified] = useState(false);
   const navigate = useNavigate();
   const handleButtonClick = () => {
+    // TODO: to enable recaptcha uncomment all these lines in the scope except the tsignores
+    // const otp = inputRefs.map((ref) => ref.current?.value).join("");
+    // console.log(otp); // This will print the concatenated values
+    // // @ts-ignore
+    // window.confirmationResult
+    //   .confirm(otp)
+    //   //   @ts-ignore
+    //   .then(async (res) => {
+    //     console.log(res);
+    //     if (res.operationType && res.operationType === "signIn") {
+    //       setIsVerified(true);
+    //       navigate("/signup");
+    //     }
+    //     return;
+    //   })
+    //   .catch((err: string) => {
+    //     console.log(err);
+    //   });
+    // TODO: to enable recaptcha, remove these next lines.
     const otp = inputRefs.map((ref) => ref.current?.value).join("");
-    console.log(otp); // This will print the concatenated values
-    // @ts-ignore
-    window.confirmationResult
-      .confirm(otp)
-      //   @ts-ignore
-      .then(async (res) => {
-        console.log(res);
-        if (res.operationType && res.operationType === "signIn") {
-          setIsVerified(true);
-          navigate("/signup");
-        }
-        return;
-      })
-      .catch((err: string) => {
-        console.log(err);
-      });
+    if (otp === "123456") {
+      navigate("/signup");
+    }
+
     // navigate("/verification"); // Navigate to the /signup route
   };
 
