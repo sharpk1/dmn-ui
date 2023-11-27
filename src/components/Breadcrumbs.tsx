@@ -14,8 +14,14 @@ const Breadcrumbs = () => {
 
   const breadcrumbStyle = {
     backgroundColor: "#1f2129",
-    padding: "8px 15px", // Example padding
-  };
+    padding: "0 15px", // Reduced padding to fit the height requirement
+    position: "fixed",
+    top: "5px", // Align to the top of the viewport
+    left: 0, // Align to the left of the viewport
+    width: "100%", // Full width
+    height: "15px", // Exact height
+    zIndex: 1000, // High z-index to ensure it's above other elements
+  } as React.CSSProperties;
 
   const breadcrumbListStyle = {
     listStyle: "none",
@@ -27,12 +33,12 @@ const Breadcrumbs = () => {
 
   const breadcrumbItemStyle = {
     marginRight: "8px", // Spacing between breadcrumbs
-    color: "#7800ff",
+    color: "#4ADEDE",
   };
 
   const breadcrumbLinkStyle = {
     textDecoration: "underline",
-    color: "#7800ff", // Example link color
+    color: "#4ADEDE", // Example link color
   };
 
   const pathnames = location.pathname

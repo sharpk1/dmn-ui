@@ -119,9 +119,10 @@ const PieceInformation: React.FC = () => {
         padding: "20px",
         margin: "10px", // Added margin around the entire component
         paddingBottom: "70px",
+        paddingTop: "40px",
       }}
     >
-      <BackButton />
+      {/* <BackButton /> */}
       {/* Container to center the image */}
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img

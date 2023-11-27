@@ -38,6 +38,7 @@ const ArtistHomepage: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        paddingTop: "15px",
       }}
     >
       {/* Top Bar */}

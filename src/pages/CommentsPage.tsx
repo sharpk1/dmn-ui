@@ -32,6 +32,7 @@ const Comments: React.FC = () => {
         color: "white",
         padding: "20px",
         margin: "10px", // Added margin around the entire component
+        paddingTop: "40px",
       }}
     >
       {/* Container to center the image */}
