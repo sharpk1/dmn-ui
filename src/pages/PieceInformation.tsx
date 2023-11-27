@@ -118,6 +118,7 @@ const PieceInformation: React.FC = () => {
         color: "white",
         padding: "20px",
         margin: "10px", // Added margin around the entire component
+        paddingBottom: "70px",
       }}
     >
       <BackButton />
@@ -233,26 +234,6 @@ const PieceInformation: React.FC = () => {
           6 comments
         </span>
       </h4>
-      <h4 style={{ margin: 0, paddingLeft: 10 }}>Curations/Events:</h4>
-      <h4 style={{ margin: 0, paddingLeft: 10 }}>
-        Night at the Museum: 7 comments
-      </h4>
-      <h4 style={{ margin: 0, paddingLeft: 10 }}>
-        Day of the Dead: 7 comments
-      </h4>
-      <h4 style={{ margin: 0, paddingLeft: 10 }}>
-        First Friday 3/26/23: 6 comments
-      </h4>
-      <h4 style={{ margin: 0, paddingLeft: 10 }}>Curations/Events:</h4>
-      <h4 style={{ margin: 0, paddingLeft: 10 }}>
-        Night at the Museum: 7 comments
-      </h4>
-      <h4 style={{ margin: 0, paddingLeft: 10 }}>
-        Day of the Dead: 7 comments
-      </h4>
-      <h4 style={{ margin: 0, paddingLeft: 10 }}>
-        First Friday 3/26/23: 6 comments
-      </h4>
       {/* Button container */}
       <div
         style={{
@@ -266,6 +247,7 @@ const PieceInformation: React.FC = () => {
           color: "white",
           textAlign: "center",
           padding: "10px 0", // Adjust as needed
+          zIndex: 1000, // Ensure it's above other content
         }}
       >
         <button
