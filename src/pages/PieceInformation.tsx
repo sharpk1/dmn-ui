@@ -209,6 +209,8 @@ const PieceInformation: React.FC = () => {
       <br />
       <h4 style={{ margin: 0, paddingLeft: 10 }}>
         Night at the Museum:{" "}
+        <BsFillEyeFill color="white" size={12} style={{ marginLeft: "10px" }} />
+        <span>3 </span>
         <span
           onClick={() => navigate("/comments")}
           style={{ cursor: "pointer", textDecoration: "underline" }}
@@ -218,6 +220,8 @@ const PieceInformation: React.FC = () => {
       </h4>
       <h4 style={{ margin: 0, paddingLeft: 10 }}>
         Day of the Dead:{" "}
+        <BsFillEyeFill color="white" size={12} style={{ marginLeft: "10px" }} />
+        <span>18 </span>
         <span
           onClick={() => navigate("/comments")}
           style={{ cursor: "pointer", textDecoration: "underline" }}
@@ -227,6 +231,8 @@ const PieceInformation: React.FC = () => {
       </h4>
       <h4 style={{ margin: 0, paddingLeft: 10 }}>
         First Friday 3/26/23:{" "}
+        <BsFillEyeFill color="white" size={12} style={{ marginLeft: "10px" }} />
+        <span>1 </span>
         <span
           onClick={() => navigate("/comments")}
           style={{ cursor: "pointer", textDecoration: "underline" }}
