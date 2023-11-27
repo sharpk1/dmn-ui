@@ -70,7 +70,7 @@ const CreateNewPiece = () => {
   };
 
   const handleSaveButton = () => {
-    navigate("/piece");
+    navigate("/home/piece");
   };
 
   return (

@@ -23,11 +23,11 @@ const ArtistHomepage: React.FC = () => {
 
   const navigate = useNavigate();
   const handleNewButton = () => {
-    navigate("/newPiece");
+    navigate("/home/newPiece");
   };
 
   const handlePiece = () => {
-    navigate("/piece");
+    navigate("/home/piece");
   };
   return (
     <div

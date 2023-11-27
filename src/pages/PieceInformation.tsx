@@ -107,7 +107,7 @@ const PieceInformation: React.FC = () => {
   };
 
   const onSubmitClick = () => {
-    return navigate("/comments");
+    return navigate("/home/piece/comments");
   };
 
   return (
