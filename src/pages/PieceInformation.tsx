@@ -213,7 +213,7 @@ const PieceInformation: React.FC = () => {
         <BsFillEyeFill color="white" size={12} style={{ marginLeft: "10px" }} />
         <span>3 </span>
         <span
-          onClick={() => navigate("/comments")}
+          onClick={() => navigate("/home/piece/comments")}
           style={{ cursor: "pointer", textDecoration: "underline" }}
         >
           7 comments
@@ -224,7 +224,7 @@ const PieceInformation: React.FC = () => {
         <BsFillEyeFill color="white" size={12} style={{ marginLeft: "10px" }} />
         <span>18 </span>
         <span
-          onClick={() => navigate("/comments")}
+          onClick={() => navigate("/home/piece/comments")}
           style={{ cursor: "pointer", textDecoration: "underline" }}
         >
           7 comments
@@ -235,7 +235,7 @@ const PieceInformation: React.FC = () => {
         <BsFillEyeFill color="white" size={12} style={{ marginLeft: "10px" }} />
         <span>1 </span>
         <span
-          onClick={() => navigate("/comments")}
+          onClick={() => navigate("/home/piece/comments")}
           style={{ cursor: "pointer", textDecoration: "underline" }}
         >
           6 comments
