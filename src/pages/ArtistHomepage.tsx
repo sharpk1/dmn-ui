@@ -76,7 +76,6 @@ const ArtistHomepage: React.FC = () => {
           <div
             style={{
               display: "flex",
-              // justifyContent: "space-between",
               alignItems: "center",
             }}
           >

@@ -8,10 +8,14 @@ import art from "../assets/art.webp";
 import { jsPDF } from "jspdf";
 import { useNavigate } from "react-router-dom";
 import newDmnLogo from "../assets/RECTANGESBLACK.png";
-import font64 from "../components/FontExport";
 import QRCode from "qrcode";
 import exportedFont from "../components/AnotherFontExport";
-import BackButton from "../components/BackButton";
+import {
+  mockArtistInfo,
+  mockDescription,
+  mockMeasure,
+  mockTitle,
+} from "../mock/mockData";
 
 const PieceInformation: React.FC = () => {
   const navigate = useNavigate();
@@ -39,9 +43,6 @@ const PieceInformation: React.FC = () => {
       format: [127, 203.2],
     });
 
-    // doc.addFileToVFS("Helvetica-Neue-Condensed-Bold.ttf", font64);
-    // doc.addFont("Helvetica-Neue-Condensed-Bold.ttf", "HelveticaNeue", "normal");
-    // doc.setFont("HelveticaNeue", "normal");
     doc.addFileToVFS("roadgeek-2005-engschrift.ttf", exportedFont);
     doc.addFont("roadgeek-2005-engschrift.ttf", "roadgeek", "normal");
     doc.setFont("roadgeek", "normal");
@@ -114,7 +115,6 @@ const PieceInformation: React.FC = () => {
     <div
       style={{
         position: "relative",
-        // backgroundColor: "black",
         color: "white",
         padding: "20px",
         margin: "10px", // Added margin around the entire component
@@ -144,13 +144,21 @@ const PieceInformation: React.FC = () => {
           alignItems: "center",
           marginTop: "10px",
           justifyContent: "space-between", // Added this
-          // width: "350px", // Matching the image's width
         }}
       >
         <div style={{ display: "flex", alignItems: "center", margin: 0 }}>
-          <h2 id="title" style={{ margin: 0 }}>
-            No, Thank You!
-          </h2>
+          {mode === "view" ? (
+            <h2 id="title" style={{ margin: 0 }}>
+              {mockTitle}
+            </h2>
+          ) : (
+            <input
+              type="text"
+              placeholder="Type"
+              value={mockTitle}
+              style={inputStyle}
+            />
+          )}
           <BsFillEyeFill
             color="white"
             size={24}
@@ -168,22 +176,19 @@ const PieceInformation: React.FC = () => {
         Brian Carano
       </h4>
       <h2 id="medium">Artist Bio</h2>
-      <h4 id="size" style={{ margin: 0, paddingLeft: 10 }}>
-        <h4>
-          An evocative artist who has spent years refining their craft, Morgan
-          Taylor is renowned for a distinctive style that blends traditional
-          techniques with modern themes. Taylor's work often explores the
-          juxtaposition of light and shadow, capturing the essence of their
-          subjects with a depth that transcends the surface. With an eye for the
-          subtle intricacies of the natural world, Taylor’s pieces are a study
-          in emotion and experience, inviting the viewer to delve into a
-          narrative that is both personal and universal. Their exhibitions have
-          drawn acclaim for their immersive quality and the visceral connection
-          they forge with audiences. Dedicated to their art, Morgan Taylor
-          continues to push boundaries, ensuring each piece is not just seen,
-          but truly felt.
+      {mode === "view" ? (
+        <h4 id="size" style={{ margin: 0, paddingLeft: 10 }}>
+          <h4>{mockArtistInfo}</h4>
         </h4>
-      </h4>
+      ) : (
+        <input
+          type="text"
+          placeholder="Type"
+          value={mockArtistInfo}
+          style={inputStyle}
+        />
+      )}
+
       {mode === "view" ? (
         <h2 id="medium">Photograph</h2>
       ) : (
@@ -194,15 +199,33 @@ const PieceInformation: React.FC = () => {
           style={inputStyle}
         />
       )}
-      <h4 id="size" style={{ margin: 0, paddingLeft: 10 }}>
-        20" x 30"
-      </h4>
+      {mode === "view" ? (
+        <h4 id="size" style={{ margin: 0, paddingLeft: 10 }}>
+          {mockMeasure}
+        </h4>
+      ) : (
+        <input
+          type="text"
+          placeholder="Type"
+          value={mockMeasure}
+          style={inputStyle}
+        />
+      )}
       <br />
-      <h4 style={{ margin: 0, paddingLeft: 10 }}>Description:</h4>
-      <h4 id="description" style={{ margin: 0, paddingLeft: 10 }}>
-        You just won big! Vegas thinks you are a chump, but this time you robbed
-        the casino and walked away a big winner!
-      </h4>
+      {/* <h4 style={{ margin: 0, paddingLeft: 10 }}>Description:</h4> */}
+      <h2 id="medium">Description:</h2>
+      {mode === "view" ? (
+        <h4 id="description" style={{ margin: 0, paddingLeft: 10 }}>
+          {mockDescription}
+        </h4>
+      ) : (
+        <input
+          type="text"
+          placeholder="Type"
+          value={mockDescription}
+          style={inputStyle}
+        />
+      )}
       <br />
       <h2 id="medium" style={{ margin: 0 }}>
         Curations/Events:

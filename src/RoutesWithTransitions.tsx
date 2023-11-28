@@ -1,6 +1,6 @@
 // RoutesWithTransitions.js
 
-import { Routes, Route, Outlet, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import LoginScreen from "./pages/LoginScreen";
 import SignUp from "./pages/SignUp";
