@@ -33,12 +33,12 @@ const Breadcrumbs = () => {
 
   const breadcrumbItemStyle = {
     marginRight: "8px", // Spacing between breadcrumbs
-    color: "#4ADEDE",
+    color: "#7800ff",
   };
 
   const breadcrumbLinkStyle = {
     textDecoration: "underline",
-    color: "#4ADEDE", // Example link color
+    color: "#7800ff", // Example link color
   };
 
   const pathnames = location.pathname
