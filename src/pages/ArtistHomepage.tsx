@@ -3,6 +3,7 @@ import DMNLogoAligned from "../components/DMNLogoAligned";
 import EyeIcons from "../components/EyeIcon";
 import WhiteCheckbox from "../components/WhiteCheckbox";
 import { useNavigate } from "react-router-dom";
+import Wec from "./Wec";
 
 const ArtistHomepage: React.FC = () => {
   const topBarRef = useRef(null);
@@ -70,6 +71,8 @@ const ArtistHomepage: React.FC = () => {
         <h1>
           Hi, Brian Carano <br /> Welcome to Dark Matter Network!
         </h1>
+
+        <Wec />
 
         <div style={{ textAlign: "left" }}>
           <h1 style={{ marginTop: "50px" }}>Your pieces</h1>
