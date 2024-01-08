@@ -1,32 +1,19 @@
-import React, { useState } from "react";
-import { QrReader } from "react-qr-reader";
+import { QrScanner } from "@yudiel/react-qr-scanner";
+import { useState } from "react";
 
-function QrScan() {
-  const [data, setData] = useState("No result");
-
-  const handleScan = (data: any) => {
-    if (data) {
-      setData(data);
-    }
-  };
-
-  const handleError = (err: any) => {
-    console.error(err);
-  };
-
+const Scanner = () => {
+  const [result, setResult] = useState("");
+  // const [error, setError] = useState("");
   return (
-    <div>
-      <QrReader
-        //   @ts-ignore
-        delay={300}
-        constraints={{ facingMode: "environment" }}
-        onError={handleError}
-        onScan={handleScan}
-        style={{ width: "100%" }}
+    <>
+      <QrScanner
+        onDecode={(result) => setResult(result)}
+        onError={(error) => console.log(error)}
       />
-      <p>{data}</p>
-    </div>
+      <div>{result || "nothing"}</div>
+      {/* <div>{error}</div> */}
+    </>
   );
-}
+};
 
-export default QrScan;
+export default Scanner;

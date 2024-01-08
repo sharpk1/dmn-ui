@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Wec from "./Wec";
 import Html5QrcodePlugin from "./QRScanner";
 import QrScan from "./QRScanner";
+import Scanner from "./QRScanner";
 
 const ArtistHomepage: React.FC = () => {
   const topBarRef = useRef(null);
@@ -86,7 +87,7 @@ const ArtistHomepage: React.FC = () => {
         </h1>
 
         {/* <Wec /> */}
-        <QrScan></QrScan>
+        <Scanner />
 
         {/* <div>{decoded}</div>
         <div>{result}</div> */}
