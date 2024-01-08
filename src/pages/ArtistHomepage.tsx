@@ -5,9 +5,12 @@ import WhiteCheckbox from "../components/WhiteCheckbox";
 import { useNavigate } from "react-router-dom";
 import Wec from "./Wec";
 import Html5QrcodePlugin from "./QRScanner";
+import QrScan from "./QRScanner";
 
 const ArtistHomepage: React.FC = () => {
   const topBarRef = useRef(null);
+  const [decoded, setDecoded] = React.useState("");
+  const [result, setResult] = React.useState("");
 
   useEffect(() => {
     console.log(window.history.scrollRestoration);
@@ -34,6 +37,8 @@ const ArtistHomepage: React.FC = () => {
 
   const onNewScanResult = (decodedText: any, decodedResult: any) => {
     // handle decoded results here
+    // setDecoded(decodedText);
+    // setResult(decodedResult);
     console.log(decodedText);
     console.log(decodedResult);
   };
@@ -81,12 +86,10 @@ const ArtistHomepage: React.FC = () => {
         </h1>
 
         {/* <Wec /> */}
-        <Html5QrcodePlugin
-          fps={10}
-          qrbox={250}
-          disableFlip={false}
-          qrCodeSuccessCallback={onNewScanResult}
-        />
+        <QrScan></QrScan>
+
+        {/* <div>{decoded}</div>
+        <div>{result}</div> */}
 
         <div style={{ textAlign: "left" }}>
           <h1 style={{ marginTop: "50px" }}>Your pieces</h1>
