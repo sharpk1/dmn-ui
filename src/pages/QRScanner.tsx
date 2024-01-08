@@ -19,7 +19,7 @@ function QrScan() {
       <QrReader
         //   @ts-ignore
         delay={300}
-        facingMode={"environment"}
+        constraints={{ facingMode: "environment" }}
         onError={handleError}
         onScan={handleScan}
         style={{ width: "100%" }}
