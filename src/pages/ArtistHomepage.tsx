@@ -4,6 +4,7 @@ import EyeIcons from "../components/EyeIcon";
 import WhiteCheckbox from "../components/WhiteCheckbox";
 import { useNavigate } from "react-router-dom";
 import Wec from "./Wec";
+import Html5QrcodePlugin from "./QRScanner";
 
 const ArtistHomepage: React.FC = () => {
   const topBarRef = useRef(null);
@@ -30,6 +31,13 @@ const ArtistHomepage: React.FC = () => {
   const handlePiece = () => {
     navigate("/home/piece");
   };
+
+  const onNewScanResult = (decodedText: any, decodedResult: any) => {
+    // handle decoded results here
+    console.log(decodedText);
+    console.log(decodedResult);
+  };
+
   return (
     <div
       style={{
@@ -72,7 +80,13 @@ const ArtistHomepage: React.FC = () => {
           Hi, Brian Carano <br /> Welcome to Dark Matter Network!
         </h1>
 
-        <Wec />
+        {/* <Wec /> */}
+        <Html5QrcodePlugin
+          fps={10}
+          qrbox={250}
+          disableFlip={false}
+          qrCodeSuccessCallback={onNewScanResult}
+        />
 
         <div style={{ textAlign: "left" }}>
           <h1 style={{ marginTop: "50px" }}>Your pieces</h1>

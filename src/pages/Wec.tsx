@@ -8,6 +8,7 @@ const Wec = () => {
 
   const capture = (webcam: any) => {
     const imageSrc = webcam.getScreenshot();
+    console.log(imageSrc);
     setImageSrc(imageSrc);
   };
 
@@ -24,6 +25,7 @@ const Wec = () => {
       {isWebcamActive && <Webcam height={600} width={600} />}{" "}
       {/* Render Webcam based on state */}
       <button onClick={toggleWebcam}>Toggle Webcam</button>{" "}
+      <button onClick={capture}>Capture</button>
       {/* Button to activate/deactivate webcam */}
     </div>
   );
